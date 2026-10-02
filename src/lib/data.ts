@@ -15,8 +15,8 @@ export const profile = {
     "Outside of work I contribute to open source, write about what I learn, and look for small problems worth automating. Replace this text with your own story.",
   ],
   socials: [
-    { label: "GitHub", href: "https://github.com/your-username" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/your-username" },
+    { label: "GitHub", href: "https://github.com/cjgdizon" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/christian-james-dizon-b731b82a0" },
   ],
 };
 

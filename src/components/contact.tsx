@@ -18,10 +18,12 @@ export function Contact() {
           <ul className="mt-8 space-y-2 text-sm">
             <li>
               <a
-                href={`mailto:${profile.email}`}
-                className="rounded-sm underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               >
-                {profile.email}
+                Gmail
               </a>
             </li>
             {profile.socials.map((s) => (

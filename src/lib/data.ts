@@ -7,7 +7,7 @@ export const profile = {
     "I build fast, accessible web apps with clean code and thoughtful design.",
   location: "City, Country",
   availability: "Open to full-time roles",
-  email: "hello@example.com",
+  email: "dizon.christianjames27@gmail.com",
   siteUrl: "https://your-portfolio.vercel.app",
   resumeUrl: "/resume.pdf",
   bio: [
@@ -138,9 +138,79 @@ export const experience: {
       "Placeholder. Mention the stack, the team, and one thing you're proud of.",
   },
   {
-    title: "B.S. in Computer Science",
-    org: "University Name",
-    period: "2018 – 2022",
+    title: "B.S. in Information Technology",
+    org: "Mapua University",
+    period: "2024 – 2027",
     summary: "Placeholder. Add honors, relevant coursework, or activities.",
+  },
+];
+
+// Newest first. Each link is the certificate's public Coursera verification page.
+// The Certifications section stays hidden if this list is empty.
+export const certifications: {
+  title: string;
+  issuer: string;
+  date: string;
+  url?: string;
+}[] = [
+  {
+    title: "User Experience: Research & Prototyping",
+    issuer: "University of California San Diego · Coursera",
+    date: "Oct 2026",
+    url: "https://coursera.org/verify/BIO0FUFPTJKI",
+  },
+  {
+    title: "AI For Everyone",
+    issuer: "DeepLearning.AI · Coursera",
+    date: "Sep 2026",
+    url: "https://coursera.org/verify/6HJJAWC5GLW6",
+  },
+  {
+    title: "Information Security Fundamentals",
+    issuer: "EC-Council · Coursera",
+    date: "Sep 2026",
+    url: "https://coursera.org/verify/V0S6MRLC563B",
+  },
+  {
+    title: "Data Warehouse Concepts, Design, and Data Integration",
+    issuer: "University of Colorado System · Coursera",
+    date: "Jun 2026",
+    url: "https://coursera.org/verify/BSVOSA3WP7IF",
+  },
+  {
+    title: "Visual Elements of User Interface Design",
+    issuer: "California Institute of the Arts · Coursera",
+    date: "Jun 2026",
+    url: "https://coursera.org/verify/4YNZ38PWXHLM",
+  },
+  {
+    title: "Version Control with Git",
+    issuer: "Atlassian · Coursera",
+    date: "Jun 2026",
+    url: "https://coursera.org/verify/4ANW4DOAZH86",
+  },
+  {
+    title: "Essential Tools for Application Development",
+    issuer: "LearnQuest · Coursera",
+    date: "Jun 2026",
+    url: "https://coursera.org/verify/TNVLO3BTDW1I",
+  },
+  {
+    title: "An Introduction to Interactive Programming in Python (Part 1)",
+    issuer: "Rice University · Coursera",
+    date: "Oct 2025",
+    url: "https://coursera.org/verify/931ELMD8HUPE",
+  },
+  {
+    title: "Object Oriented Programming in Java",
+    issuer: "University of California San Diego · Coursera",
+    date: "Mar 2025",
+    url: "https://coursera.org/verify/27BKH0UFWE9V",
+  },
+  {
+    title: "Advanced Styling with Responsive Design",
+    issuer: "University of Michigan · Coursera",
+    date: "Feb 2025",
+    url: "https://coursera.org/verify/O13O9HIBQS82",
   },
 ];

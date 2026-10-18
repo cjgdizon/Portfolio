@@ -49,6 +49,24 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://amira-perfume-store.vercel.app",
   },
+  {
+    slug: "brightsmile",
+    title: "BrightSmile",
+    summary: "Scheduling, dental charts and online booking for a three-branch dental practice.",
+    description:
+      "A full-stack practice system for a dental clinic with three branches in the Philippines (project name: DentaSync). Front desk staff manage appointments and chairs on a branch calendar, dentists chart treatment by tooth, and patients book online or fill in a patient form from a QR poster in the waiting room. Online requests arrive marked as Online and wait for the front desk to confirm them. Access is role-based, with an audit log, and the app is set up to run on Supabase Postgres and Vercel.",
+    role: "Full-stack developer",
+    year: "2026",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle", "Playwright"],
+    highlights: [
+      "Branch calendar with chairs, visit lengths and cleaning time",
+      "Online booking and QR patient forms with per-visitor rate limits",
+      "Owner, manager and staff roles with an access log",
+      "Unit and database tests plus an end-to-end run covering a full visit",
+    ],
+    liveUrl: "https://brightsmile.pro",
+    repoUrl: "https://github.com/cjgdizon/BrightSmile",
+  },
 ];
 
 export const skills: { group: string; items: string[] }[] = [

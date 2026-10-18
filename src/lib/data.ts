@@ -51,12 +51,12 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/cjgdizon/perfume-store",
   },
   {
-    slug: "brightsmile",
+    slug: "dentasync",
     title: "BrightSmile",
     summary: "Scheduling, dental charts and online booking for a three-branch dental practice.",
     description:
       "A full-stack practice system for a dental clinic with three branches in the Philippines (project name: DentaSync). Front desk staff manage appointments and chairs on a branch calendar, dentists chart treatment by tooth, and patients book online or fill in a patient form from a QR poster in the waiting room. Online requests arrive marked as Online and wait for the front desk to confirm them. Access is role-based, with an audit log, and the app is set up to run on Supabase Postgres and Vercel.",
-    role: "Full-stack developer",
+    role: "Group Project",
     year: "2026",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle", "Playwright"],
     highlights: [
@@ -67,6 +67,23 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://brightsmile.pro",
     repoUrl: "https://github.com/cjgdizon/BrightSmile",
+  },
+  {
+    slug: "lubak-alert",
+    title: "Lubak Alert",
+    summary: "An offline pothole warning app: AI on the phone, no internet needed.",
+    description:
+      "Built for the AppBuildersPH Hackathon 2026 (theme: Local AI). Lubak is Filipino for pothole. A phone on a motorbike or jeep runs a YOLOv8n detection model on the device itself, confirms what it saw with the accelerometer and GPS, and warns nearby riders through a laptop hub on a Wi-Fi hotspot, with the internet switched off. No camera frame ever leaves the phone. It's an installable offline-first web app with an offline map. On 179 held-out public photos the model found a pothole in 62 of the 67 photos that showed one. It hasn't been tested on a real ride yet, and flooded-road detection is not working because there were no labelled images.",
+    role: "Hackathon team project",
+    year: "2026",
+    tags: ["TypeScript", "PWA", "ONNX", "Node.js", "Python"],
+    highlights: [
+      "Detection runs on the phone with onnxruntime-web (WebGPU, or WASM as a fallback)",
+      "Phones share hazards through a laptop hub over HTTPS and WebSocket, with no internet",
+      "Warns riders about 6 seconds before a reported pothole",
+      "330+ automated tests plus a two-phone rehearsal run in CI",
+    ],
+    repoUrl: "https://github.com/cjgdizon/HACKATON-LubakAlert",
   },
   {
     slug: "tetris-battle",
@@ -114,6 +131,13 @@ export const experience: {
     period: "2024 – 2027",
     summary: "",
   },
+  {
+    title: "AppBuilder 2026",
+    org: "Hackathon",
+    period: "2026",
+    summary: "",
+  },
+
 ];
 
 // Newest first. Each link is the certificate's public Coursera verification page.
@@ -124,6 +148,12 @@ export const certifications: {
   date: string;
   url?: string;
 }[] = [
+  {
+    title: "Angular for Front End Engineers",
+    issuer: "Codio · Coursera",
+    date: "Oct 2026",
+    url: "https://coursera.org/verify/BBKOCPUXZL8V",
+  },
   {
     title: "User Experience: Research & Prototyping",
     issuer: "University of California San Diego · Coursera",
@@ -141,6 +171,12 @@ export const certifications: {
     issuer: "EC-Council · Coursera",
     date: "Sep 2026",
     url: "https://coursera.org/verify/V0S6MRLC563B",
+  },
+  {
+    title: "Foundations of Agile Project Management",
+    issuer: "Google · Coursera",
+    date: "Sep 2026",
+    url: "https://coursera.org/verify/6G3PAQV3Y9TC",
   },
   {
     title: "Data Warehouse Concepts, Design, and Data Integration",
@@ -167,10 +203,34 @@ export const certifications: {
     url: "https://coursera.org/verify/TNVLO3BTDW1I",
   },
   {
+    title: "Introduction to Data Science in Python",
+    issuer: "University of Michigan · Coursera",
+    date: "Feb 2026",
+    url: "https://coursera.org/verify/66GATIEFK0F3",
+  },
+  {
+    title: "Enterprise Systems",
+    issuer: "University of Minnesota · Coursera",
+    date: "Nov 2025",
+    url: "https://coursera.org/verify/ZVPZE4185JHY",
+  },
+  {
     title: "An Introduction to Interactive Programming in Python (Part 1)",
     issuer: "Rice University · Coursera",
     date: "Oct 2025",
     url: "https://coursera.org/verify/931ELMD8HUPE",
+  },
+  {
+    title: "Data Structures",
+    issuer: "University of California San Diego · Coursera",
+    date: "Jul 2025",
+    url: "https://coursera.org/verify/YVG8U8XUCZH0",
+  },
+  {
+    title: "Database Management Essentials",
+    issuer: "University of Colorado System · Coursera",
+    date: "Jul 2025",
+    url: "https://coursera.org/verify/UTQ0OXG80HMA",
   },
   {
     title: "Object Oriented Programming in Java",
@@ -179,9 +239,27 @@ export const certifications: {
     url: "https://coursera.org/verify/27BKH0UFWE9V",
   },
   {
+    title: "Interactivity with JavaScript",
+    issuer: "University of Michigan · Coursera",
+    date: "Mar 2025",
+    url: "https://coursera.org/verify/8OH47ATWR0FK",
+  },
+  {
+    title: "Introduction to Contemporary Operating Systems and Hardware 1a",
+    issuer: "Illinois Tech · Coursera",
+    date: "Mar 2025",
+    url: "https://coursera.org/verify/M707SU8U5U9U",
+  },
+  {
     title: "Advanced Styling with Responsive Design",
     issuer: "University of Michigan · Coursera",
     date: "Feb 2025",
     url: "https://coursera.org/verify/O13O9HIBQS82",
+  },
+  {
+    title: "Programming for Everybody (Getting Started with Python)",
+    issuer: "University of Michigan · Coursera",
+    date: "Oct 2024",
+    url: "https://coursera.org/verify/049T968QAA8N",
   },
 ];

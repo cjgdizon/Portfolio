@@ -68,6 +68,23 @@ export const projects: Project[] = [
     liveUrl: "https://brightsmile.pro",
     repoUrl: "https://github.com/cjgdizon/BrightSmile",
   },
+  {
+    slug: "tetris-battle",
+    title: "Tetris Battle",
+    summary: "A competitive Tetris game for Windows: you against a bot.",
+    description:
+      "A desktop game where one player faces a bot in a best-of-N match. It follows modern Tetris rules: SRS rotation with wall kicks, a 7-bag piece generator, hold, ghost piece and a five-piece preview. Clearing lines sends garbage to the opponent, with T-spins, combos, back-to-back bonuses and perfect clears. Gravity speeds up every 30 seconds so rounds can't stall. Controls, handling and bot speed can be changed in a settings file.",
+    role: "Solo project",
+    year: "2026",
+    tags: ["Python", "pygame", "pytest"],
+    highlights: [
+      "SRS rotation, T-spins, combos, back-to-back and garbage cancelling",
+      "Bot opponent with adjustable speed",
+      "Configurable controls and handling (DAS, ARR, soft drop)",
+      "Automated tests with pytest",
+    ],
+    repoUrl: "https://github.com/cjgdizon/tetris",
+  },
 ];
 
 export const skills: { group: string; items: string[] }[] = [

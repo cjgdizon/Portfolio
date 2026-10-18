@@ -5,14 +5,12 @@ export const profile = {
   role: "Full-Stack Developer",
   tagline:
     "I build fast, accessible web apps with clean code and thoughtful design.",
-  location: "City, Country",
   availability: "Open to full-time roles",
   email: "dizon.christianjames27@gmail.com",
   siteUrl: "https://portfolio-nine-coral-djuqwwvzib.vercel.app",
   resumeUrl: "/resume.pdf",
   bio: [
     "I'm a developer who enjoys turning ideas into polished, reliable products. I care about performance, accessibility, and code that's easy for the next person to read.",
-    "Outside of work I contribute to open source, write about what I learn, and look for small problems worth automating. Replace this text with your own story.",
   ],
   socials: [
     { label: "GitHub", href: "https://github.com/cjgdizon" },
@@ -51,55 +49,6 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://amira-perfume-store.vercel.app",
   },
-  {
-    slug: "pulse-analytics",
-    title: "Pulse Analytics",
-    summary: "A privacy-friendly analytics dashboard for small sites.",
-    description:
-      "A placeholder case study. Explain your approach, the trade-offs you made, and how you measured success.",
-    role: "Frontend developer",
-    year: "2025",
-    tags: ["React", "D3", "Node.js"],
-    highlights: [
-      "Handles 1M+ events per day",
-      "Accessible charts with table fallbacks",
-      "Cut page load time by 40%",
-    ],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com/your-username/pulse-analytics",
-  },
-  {
-    slug: "shelf",
-    title: "Shelf",
-    summary: "A minimal reading list app with offline support.",
-    description:
-      "A placeholder case study. Cover the idea, your role, and the technical challenges you solved.",
-    role: "Solo project",
-    year: "2025",
-    tags: ["Next.js", "PWA", "Supabase"],
-    highlights: [
-      "Installable and works offline",
-      "Sync conflict resolution",
-      "Keyboard-first interface",
-    ],
-    repoUrl: "https://github.com/your-username/shelf",
-  },
-  {
-    slug: "ui-kit",
-    title: "Minimal UI Kit",
-    summary: "An open-source component library built on Radix and Tailwind.",
-    description:
-      "A placeholder case study. Describe the goals of the library, how you documented it, and who uses it.",
-    role: "Maintainer",
-    year: "2024",
-    tags: ["React", "Radix UI", "Storybook"],
-    highlights: [
-      "30+ accessible components",
-      "Full dark mode support",
-      "Published on npm",
-    ],
-    repoUrl: "https://github.com/your-username/ui-kit",
-  },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
@@ -124,24 +73,10 @@ export const experience: {
   summary: string;
 }[] = [
   {
-    title: "Software Engineer",
-    org: "Company Name",
-    period: "2024 – Present",
-    summary:
-      "Placeholder. Describe what you shipped and the impact it had, ideally with a number.",
-  },
-  {
-    title: "Junior Developer",
-    org: "Another Company",
-    period: "2022 – 2024",
-    summary:
-      "Placeholder. Mention the stack, the team, and one thing you're proud of.",
-  },
-  {
     title: "B.S. in Information Technology",
     org: "Mapua University",
     period: "2024 – 2027",
-    summary: "Placeholder. Add honors, relevant coursework, or activities.",
+    summary: "",
   },
 ];
 

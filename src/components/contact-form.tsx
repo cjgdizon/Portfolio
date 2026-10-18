@@ -23,6 +23,14 @@ export function ContactForm() {
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
 
+    // Honeypot: a filled hidden field means a bot, or an autofill extension that filled every input.
+    // Drop silently and show the normal success state, so a real person never sees a dead button.
+    if (data.website) {
+      form.reset();
+      setStatus("success");
+      return;
+    }
+
     const parsed = contactSchema.safeParse(data);
     if (!parsed.success) {
       const fe = parsed.error.flatten().fieldErrors;
@@ -157,7 +165,7 @@ export function ContactForm() {
 
       <div role="status" aria-live="polite" className="min-h-6 text-sm">
         {status === "success" && (
-          <p className="text-emerald-600 dark:text-emerald-400">
+          <p className="text-emerald-700 dark:text-emerald-400">
             Thanks! Your message was sent. I&apos;ll get back to you soon.
           </p>
         )}

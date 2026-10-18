@@ -19,7 +19,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
-  return { title: project.title, description: project.summary };
+  const url = `/projects/${slug}`;
+  return {
+    title: project.title,
+    description: project.summary,
+    alternates: { canonical: url },
+    openGraph: { title: project.title, description: project.summary, url },
+  };
 }
 
 export default async function ProjectPage({

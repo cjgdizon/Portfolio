@@ -24,9 +24,6 @@ export function About() {
             {profile.bio.map((p) => (
               <p key={p}>{p}</p>
             ))}
-            <p className="font-mono text-sm">
-              Based in {profile.location}
-            </p>
           </div>
         </Reveal>
       </div>

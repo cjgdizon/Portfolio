@@ -48,6 +48,7 @@ export const projects: Project[] = [
       "Full stack starts with one command (docker compose up); the live demo needs no server",
     ],
     liveUrl: "https://amira-perfume-store.vercel.app",
+    repoUrl: "https://github.com/cjgdizon/perfume-store",
   },
   {
     slug: "brightsmile",

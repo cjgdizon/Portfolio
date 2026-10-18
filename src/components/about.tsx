@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
 import { profile } from "@/lib/data";
@@ -7,16 +9,14 @@ export function About() {
     <Section id="about" title="About">
       <div className="grid gap-10 md:grid-cols-[220px_1fr] md:gap-16">
         <Reveal>
-          <div
-            role="img"
-            aria-label="Placeholder portrait. Replace with your photo."
-            className="flex aspect-square w-40 items-center justify-center rounded-2xl border border-border bg-muted text-3xl font-semibold text-muted-foreground md:w-full"
-          >
-            {profile.name
-              .split(" ")
-              .map((w) => w[0])
-              .join("")
-              .slice(0, 2)}
+          <div className="relative aspect-square w-40 overflow-hidden rounded-2xl border border-border md:w-full">
+            <Image
+              src="/profile.jpg"
+              alt={`Portrait of ${profile.name}`}
+              fill
+              sizes="(min-width: 768px) 220px, 160px"
+              className="object-cover"
+            />
           </div>
         </Reveal>
         <Reveal delay={0.05}>

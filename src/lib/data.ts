@@ -1,7 +1,7 @@
 // All portfolio content lives here. Replace the placeholders with your own.
 
 export const profile = {
-  name: "Your Name",
+  name: "Christian James Dizon",
   role: "Full-Stack Developer",
   tagline:
     "I build fast, accessible web apps with clean code and thoughtful design.",
@@ -35,21 +35,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "taskflow",
-    title: "TaskFlow",
-    summary: "A collaborative task manager with real-time updates.",
+    slug: "amira",
+    title: "AMIRA",
+    summary: "An online perfume store with real inventory tracking.",
     description:
-      "A placeholder case study. Describe the problem you set out to solve, who it was for, and what made the result useful.",
+      "A full-stack store built from a business proposal. Customers browse the catalog, add perfumes to a cart, and check out. The owner manages perfumes, sizes, batches, stock and orders from a separate area. Stock is reserved when an order is placed, deducted when it's paid, and restored if it's cancelled, with database locks so two buyers can't take the last bottle.",
     role: "Full-stack developer",
     year: "2026",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
+    tags: ["Angular", "Spring Boot", "Java", "MySQL", "Docker"],
     highlights: [
-      "Real-time sync across clients",
-      "Role-based access control",
-      "Lighthouse score above 95",
+      "Owner reports for expiring, low-stock and slow-moving batches",
+      "Customer and owner roles with BCrypt passwords and one-time password-reset links",
+      "Integration test covering the full order, payment and cancel flow",
+      "One command (docker compose up) starts the database, API and site",
     ],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com/your-username/taskflow",
+    repoUrl: "https://github.com/cjgdizon/perfume-store",
   },
   {
     slug: "pulse-analytics",

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema } from "@/lib/contact-schema";
+import { profile } from "@/lib/data";
 
 type Status = "idle" | "sending" | "success" | "error";
 type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
@@ -42,14 +43,30 @@ export function ContactForm() {
     setStatus("sending");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
-      });
+      // FormSubmit emails the message to profile.email. It must be called from the visitor's browser:
+      // it answers 403 to requests coming from Vercel's servers.
+      const { name, email, message } = parsed.data;
+      const res = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(profile.email)}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            _subject: `Portfolio message from ${name}`,
+            _replyto: email,
+            _template: "table",
+            _captcha: "false",
+          }),
+        },
+      );
       const json = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setFormError(json.message ?? "Something went wrong. Please try again.");
+      if (!res.ok || (json.success !== true && json.success !== "true")) {
+        setFormError(
+          "Something went wrong sending your message. Please try again, or use the Gmail link above.",
+        );
         setStatus("error");
         return;
       }

@@ -1,6 +1,5 @@
-import { Resend } from "resend";
-
 import { contactSchema } from "@/lib/contact-schema";
+import { profile } from "@/lib/data";
 
 // Simple in-memory rate limit: 5 requests per IP per 10 minutes.
 // Per-instance only; swap for Upstash/Vercel KV if you need it to be global.
@@ -44,30 +43,45 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
-  if (!apiKey || !to) {
-    console.error("Contact form: RESEND_API_KEY or CONTACT_TO_EMAIL is not set.");
+  // Delivery uses FormSubmit (formsubmit.co): no account or API key, it emails the message to the
+  // address in the URL. CONTACT_TO_EMAIL can override the recipient (e.g. FormSubmit's private alias).
+  const to = process.env.CONTACT_TO_EMAIL ?? profile.email;
+  const { name, email, message } = parsed.data;
+
+  let result: { success?: boolean | string; message?: string } | null = null;
+  try {
+    const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Origin: profile.siteUrl,
+        Referer: `${profile.siteUrl}/`,
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        _subject: `Portfolio message from ${name}`,
+        _replyto: email,
+        _template: "table",
+        _captcha: "false",
+      }),
+    });
+    result = await res.json().catch(() => null);
+    if (!res.ok) throw new Error(`FormSubmit responded ${res.status}: ${result?.message ?? ""}`);
+  } catch (error) {
+    console.error("Contact form: delivery failed", error);
     return Response.json(
-      { message: "The contact form isn't configured yet. Please email me directly." },
-      { status: 503 },
+      { message: "Something went wrong sending your message. Please try again, or email me directly." },
+      { status: 502 },
     );
   }
 
-  const { name, email, message } = parsed.data;
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from: process.env.CONTACT_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>",
-    to,
-    replyTo: email,
-    subject: `Portfolio message from ${name}`,
-    text: `From: ${name} <${email}>\n\n${message}`,
-  });
-
-  if (error) {
-    console.error("Contact form: Resend error", error);
+  if (result?.success !== true && result?.success !== "true") {
+    console.error("Contact form: FormSubmit did not accept the message", result);
     return Response.json(
-      { message: "Something went wrong sending your message. Please try again." },
+      { message: "Something went wrong sending your message. Please try again, or email me directly." },
       { status: 502 },
     );
   }

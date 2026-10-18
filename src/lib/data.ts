@@ -8,7 +8,7 @@ export const profile = {
   location: "City, Country",
   availability: "Open to full-time roles",
   email: "dizon.christianjames27@gmail.com",
-  siteUrl: "https://your-portfolio.vercel.app",
+  siteUrl: "https://portfolio-nine-coral-djuqwwvzib.vercel.app",
   resumeUrl: "/resume.pdf",
   bio: [
     "I'm a developer who enjoys turning ideas into polished, reliable products. I care about performance, accessibility, and code that's easy for the next person to read.",

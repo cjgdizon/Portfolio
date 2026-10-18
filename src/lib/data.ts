@@ -140,7 +140,7 @@ export const experience: {
 
 ];
 
-// Newest first. Each link is the certificate's public Coursera verification page.
+// Newest first. Each link is the certificate's public Coursera share link.
 // The Certifications section stays hidden if this list is empty.
 export const certifications: {
   title: string;
@@ -152,114 +152,114 @@ export const certifications: {
     title: "Angular for Front End Engineers",
     issuer: "Codio · Coursera",
     date: "Oct 2026",
-    url: "https://coursera.org/verify/BBKOCPUXZL8V",
+    url: "https://www.coursera.org/account/accomplishments/records/BBKOCPUXZL8V",
   },
   {
     title: "User Experience: Research & Prototyping",
     issuer: "University of California San Diego · Coursera",
     date: "Oct 2026",
-    url: "https://coursera.org/verify/BIO0FUFPTJKI",
+    url: "https://www.coursera.org/account/accomplishments/records/BIO0FUFPTJKI",
   },
   {
     title: "AI For Everyone",
     issuer: "DeepLearning.AI · Coursera",
     date: "Sep 2026",
-    url: "https://coursera.org/verify/6HJJAWC5GLW6",
+    url: "https://www.coursera.org/account/accomplishments/records/6HJJAWC5GLW6",
   },
   {
     title: "Information Security Fundamentals",
     issuer: "EC-Council · Coursera",
     date: "Sep 2026",
-    url: "https://coursera.org/verify/V0S6MRLC563B",
+    url: "https://www.coursera.org/account/accomplishments/records/V0S6MRLC563B",
   },
   {
     title: "Foundations of Agile Project Management",
     issuer: "Google · Coursera",
     date: "Sep 2026",
-    url: "https://coursera.org/verify/6G3PAQV3Y9TC",
+    url: "https://www.coursera.org/account/accomplishments/records/6G3PAQV3Y9TC",
   },
   {
     title: "Data Warehouse Concepts, Design, and Data Integration",
     issuer: "University of Colorado System · Coursera",
     date: "Jun 2026",
-    url: "https://coursera.org/verify/BSVOSA3WP7IF",
+    url: "https://www.coursera.org/account/accomplishments/records/BSVOSA3WP7IF",
   },
   {
     title: "Visual Elements of User Interface Design",
     issuer: "California Institute of the Arts · Coursera",
     date: "Jun 2026",
-    url: "https://coursera.org/verify/4YNZ38PWXHLM",
+    url: "https://www.coursera.org/account/accomplishments/records/4YNZ38PWXHLM",
   },
   {
     title: "Version Control with Git",
     issuer: "Atlassian · Coursera",
     date: "Jun 2026",
-    url: "https://coursera.org/verify/4ANW4DOAZH86",
+    url: "https://www.coursera.org/account/accomplishments/records/4ANW4DOAZH86",
   },
   {
     title: "Essential Tools for Application Development",
     issuer: "LearnQuest · Coursera",
     date: "Jun 2026",
-    url: "https://coursera.org/verify/TNVLO3BTDW1I",
+    url: "https://www.coursera.org/account/accomplishments/records/TNVLO3BTDW1I",
   },
   {
     title: "Introduction to Data Science in Python",
     issuer: "University of Michigan · Coursera",
     date: "Feb 2026",
-    url: "https://coursera.org/verify/66GATIEFK0F3",
+    url: "https://www.coursera.org/account/accomplishments/records/66GATIEFK0F3",
   },
   {
     title: "Enterprise Systems",
     issuer: "University of Minnesota · Coursera",
     date: "Nov 2025",
-    url: "https://coursera.org/verify/ZVPZE4185JHY",
+    url: "https://www.coursera.org/account/accomplishments/records/ZVPZE4185JHY",
   },
   {
     title: "An Introduction to Interactive Programming in Python (Part 1)",
     issuer: "Rice University · Coursera",
     date: "Oct 2025",
-    url: "https://coursera.org/verify/931ELMD8HUPE",
+    url: "https://www.coursera.org/account/accomplishments/records/931ELMD8HUPE",
   },
   {
     title: "Data Structures",
     issuer: "University of California San Diego · Coursera",
     date: "Jul 2025",
-    url: "https://coursera.org/verify/YVG8U8XUCZH0",
+    url: "https://www.coursera.org/account/accomplishments/records/YVG8U8XUCZH0",
   },
   {
     title: "Database Management Essentials",
     issuer: "University of Colorado System · Coursera",
     date: "Jul 2025",
-    url: "https://coursera.org/verify/UTQ0OXG80HMA",
+    url: "https://www.coursera.org/account/accomplishments/records/UTQ0OXG80HMA",
   },
   {
     title: "Object Oriented Programming in Java",
     issuer: "University of California San Diego · Coursera",
     date: "Mar 2025",
-    url: "https://coursera.org/verify/27BKH0UFWE9V",
+    url: "https://www.coursera.org/account/accomplishments/records/27BKH0UFWE9V",
   },
   {
     title: "Interactivity with JavaScript",
     issuer: "University of Michigan · Coursera",
     date: "Mar 2025",
-    url: "https://coursera.org/verify/8OH47ATWR0FK",
+    url: "https://www.coursera.org/account/accomplishments/records/8OH47ATWR0FK",
   },
   {
     title: "Introduction to Contemporary Operating Systems and Hardware 1a",
     issuer: "Illinois Tech · Coursera",
     date: "Mar 2025",
-    url: "https://coursera.org/verify/M707SU8U5U9U",
+    url: "https://www.coursera.org/account/accomplishments/records/M707SU8U5U9U",
   },
   {
     title: "Advanced Styling with Responsive Design",
     issuer: "University of Michigan · Coursera",
     date: "Feb 2025",
-    url: "https://coursera.org/verify/O13O9HIBQS82",
+    url: "https://www.coursera.org/account/accomplishments/records/O13O9HIBQS82",
   },
   {
     title: "Programming for Everybody (Getting Started with Python)",
     issuer: "University of Michigan · Coursera",
     date: "Oct 2024",
-    url: "https://coursera.org/verify/049T968QAA8N",
+    url: "https://www.coursera.org/account/accomplishments/records/049T968QAA8N",
   },
 ];

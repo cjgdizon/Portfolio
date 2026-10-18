@@ -39,7 +39,7 @@ export const projects: Project[] = [
     title: "AMIRA",
     summary: "An online perfume store with real inventory tracking.",
     description:
-      "A full-stack store built from a business proposal. Customers browse the catalog, add perfumes to a cart, and check out. The owner manages perfumes, sizes, batches, stock and orders from a separate area. Stock is reserved when an order is placed, deducted when it's paid, and restored if it's cancelled, with database locks so two buyers can't take the last bottle.",
+      "A full-stack store built from a business proposal. Customers browse the catalog, add perfumes to a cart, and check out. The owner manages perfumes, sizes, batches, stock and orders from a separate area. Stock is reserved when an order is placed, deducted when it's paid, and restored if it's cancelled, with database locks so two buyers can't take the last bottle. The live site is a demo that runs entirely in your browser with sample data. Sign in as the owner to see the stock, orders and reports.",
     role: "Full-stack developer",
     year: "2026",
     tags: ["Angular", "Spring Boot", "Java", "MySQL", "Docker"],
@@ -47,9 +47,9 @@ export const projects: Project[] = [
       "Owner reports for expiring, low-stock and slow-moving batches",
       "Customer and owner roles with BCrypt passwords and one-time password-reset links",
       "Integration test covering the full order, payment and cancel flow",
-      "One command (docker compose up) starts the database, API and site",
+      "Full stack starts with one command (docker compose up); the live demo needs no server",
     ],
-    repoUrl: "https://github.com/cjgdizon/perfume-store",
+    liveUrl: "https://amira-perfume-store.vercel.app",
   },
   {
     slug: "pulse-analytics",

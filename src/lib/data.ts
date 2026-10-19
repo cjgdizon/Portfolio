@@ -10,11 +10,13 @@ export const profile = {
   siteUrl: "https://portfolio-nine-coral-djuqwwvzib.vercel.app",
   resumeUrl: "/resume.pdf",
   bio: [
-    "I'm a developer who enjoys turning ideas into polished, reliable products. I care about performance, accessibility, and code that's easy for the next person to read.",
+    "I'm an Information Technology student at Mapúa University who enjoys building complete, working software, from the database to the interface. I've built and deployed web projects including an online store with inventory tracking and a booking system for a dental clinic, and I take part in hackathons. I'm a fast learner, I write code that other people can read, and I back up my learning with Coursera certificates in programming, databases and design. I'm looking for an internship where I can contribute, learn from experienced engineers, and grow as a developer.",
   ],
   socials: [
     { label: "GitHub", href: "https://github.com/cjgdizon" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/christian-james-dizon-b731b82a0" },
+    { label: "Instagram", href: "https://www.instagram.com/christian.znn/" },
+    { label: "Facebook", href: "https://www.facebook.com/1Chrizon1" },
   ],
 };
 
@@ -107,15 +109,19 @@ export const projects: Project[] = [
 export const skills: { group: string; items: string[] }[] = [
   {
     group: "Frontend",
-    items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Accessibility"],
+    items: ["TypeScript", "Angular", "React", "Next.js", "Tailwind CSS", "PWA", "Accessibility"],
   },
   {
     group: "Backend",
-    items: ["Node.js", "PostgreSQL", "REST & GraphQL", "Prisma", "Auth"],
+    items: ["Java", "Spring Boot", "Node.js", "REST APIs", "WebSocket", "MySQL", "PostgreSQL", "Drizzle ORM"],
   },
   {
-    group: "Tools",
-    items: ["Git", "Docker", "Vercel", "CI/CD", "Testing"],
+    group: "Languages",
+    items: ["TypeScript", "JavaScript", "Java", "Python", "SQL"],
+  },
+  {
+    group: "Tools & testing",
+    items: ["Git", "Docker", "Vercel", "GitHub Actions", "Playwright", "pytest", "ONNX Runtime"],
   },
 ];
 
@@ -128,7 +134,7 @@ export const experience: {
   {
     title: "B.S. in Information Technology",
     org: "Mapua University",
-    period: "2024 – 2027",
+    period: "2024-2027",
     summary: "",
   },
   {

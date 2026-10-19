@@ -9,6 +9,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { contactSchema } from "@/lib/contact-schema";
 import { profile } from "@/lib/data";
+import { cn } from "@/lib/utils";
+
+// The form sits on a white info sign in both themes, so the fields keep light, high-contrast colours.
+const field =
+  "h-12 border-paper-foreground/50 bg-white text-base text-paper-foreground placeholder:text-paper-foreground/60 focus-visible:border-sign focus-visible:ring-sign/40 dark:bg-white";
 
 type Status = "idle" | "sending" | "success" | "error";
 type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
@@ -99,10 +104,10 @@ export function ContactForm() {
           required
           aria-invalid={!!errors.name}
           aria-describedby={errors.name ? "name-error" : undefined}
-          className="h-11"
+          className={field}
         />
         {errors.name && (
-          <p id="name-error" className="text-sm text-destructive">
+          <p id="name-error" className="text-sm font-medium text-red-700">
             {errors.name}
           </p>
         )}
@@ -118,10 +123,10 @@ export function ContactForm() {
           required
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "email-error" : undefined}
-          className="h-11"
+          className={field}
         />
         {errors.email && (
-          <p id="email-error" className="text-sm text-destructive">
+          <p id="email-error" className="text-sm font-medium text-red-700">
             {errors.email}
           </p>
         )}
@@ -136,9 +141,10 @@ export function ContactForm() {
           required
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
+          className={cn(field, "h-auto min-h-36 py-3")}
         />
         {errors.message && (
-          <p id="message-error" className="text-sm text-destructive">
+          <p id="message-error" className="text-sm font-medium text-red-700">
             {errors.message}
           </p>
         )}
@@ -153,7 +159,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={sending}
-        className="h-11 w-full cursor-pointer rounded-full text-sm sm:w-auto sm:px-8"
+        className="h-12 w-full cursor-pointer font-display text-lg font-bold tracking-wide uppercase sm:w-auto sm:px-8"
       >
         {sending ? (
           <Loader2 aria-hidden="true" className="animate-spin" />
@@ -165,12 +171,12 @@ export function ContactForm() {
 
       <div role="status" aria-live="polite" className="min-h-6 text-sm">
         {status === "success" && (
-          <p className="text-emerald-700 dark:text-emerald-400">
+          <p className="font-medium text-sign">
             Thanks! Your message was sent. I&apos;ll get back to you soon.
           </p>
         )}
         {status === "error" && (
-          <p className="text-destructive">{formError}</p>
+          <p className="font-medium text-red-700">{formError}</p>
         )}
       </div>
     </form>

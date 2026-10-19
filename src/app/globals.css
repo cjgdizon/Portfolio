@@ -7,22 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-geist-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
+  --font-sans: var(--font-barlow);
+  --font-display: var(--font-barlow-condensed);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-barlow-condensed);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -39,102 +27,274 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
+  --color-sign: var(--sign);
+  --color-sign-foreground: var(--sign-foreground);
+  --color-caution: var(--caution);
+  --color-caution-foreground: var(--caution-foreground);
+  --color-asphalt: var(--asphalt);
+  --color-asphalt-foreground: var(--asphalt-foreground);
+  --color-paper: var(--paper);
+  --color-paper-foreground: var(--paper-foreground);
+  /* One corner language: every sign, control and panel uses --radius (10px). Small tags use rounded-sm. */
+  --radius-sm: 0.25rem;
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* Highway signage: concrete by day, asphalt by night. The signs keep their identity in both. */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --background: oklch(0.945 0.007 140);
+  --foreground: oklch(0.21 0.012 150);
+  --card: oklch(0.985 0.004 140);
+  --card-foreground: oklch(0.21 0.012 150);
+  --popover: oklch(0.985 0.004 140);
+  --popover-foreground: oklch(0.21 0.012 150);
+  --primary: oklch(0.44 0.105 155);
+  --primary-foreground: oklch(0.985 0.005 140);
+  --secondary: oklch(0.9 0.01 140);
+  --secondary-foreground: oklch(0.21 0.012 150);
+  --muted: oklch(0.91 0.01 140);
+  --muted-foreground: oklch(0.43 0.015 150);
+  --accent: oklch(0.91 0.01 140);
+  --accent-foreground: oklch(0.21 0.012 150);
+  --destructive: oklch(0.52 0.2 27);
+  --border: oklch(0.78 0.012 145);
+  --input: oklch(0.6 0.015 145);
+  --ring: oklch(0.21 0.012 150);
+
+  --sign: oklch(0.44 0.105 155);
+  --sign-foreground: oklch(0.985 0.005 140);
+  --caution: oklch(0.87 0.17 92);
+  --caution-foreground: oklch(0.2 0.02 90);
+  --asphalt: oklch(0.23 0.012 150);
+  --asphalt-foreground: oklch(0.95 0.006 140);
+  --paper: oklch(0.99 0.004 140);
+  --paper-foreground: oklch(0.3 0.08 155);
+
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: oklch(0.17 0.01 155);
+  --foreground: oklch(0.94 0.006 140);
+  --card: oklch(0.22 0.011 155);
+  --card-foreground: oklch(0.94 0.006 140);
+  --popover: oklch(0.22 0.011 155);
+  --popover-foreground: oklch(0.94 0.006 140);
+  --primary: oklch(0.5 0.115 155);
+  --primary-foreground: oklch(0.985 0.005 140);
+  --secondary: oklch(0.27 0.012 155);
+  --secondary-foreground: oklch(0.94 0.006 140);
+  --muted: oklch(0.25 0.012 155);
+  --muted-foreground: oklch(0.74 0.012 150);
+  --accent: oklch(0.27 0.012 155);
+  --accent-foreground: oklch(0.94 0.006 140);
+  --destructive: oklch(0.72 0.17 25);
+  --border: oklch(1 0 0 / 16%);
+  --input: oklch(1 0 0 / 38%);
+  --ring: oklch(0.87 0.17 92);
+
+  --sign: oklch(0.43 0.1 155);
+  --sign-foreground: oklch(0.985 0.005 140);
+  --caution: oklch(0.87 0.17 92);
+  --caution-foreground: oklch(0.2 0.02 90);
+  --asphalt: oklch(0.27 0.012 155);
+  --asphalt-foreground: oklch(0.95 0.006 140);
+  --paper: oklch(0.95 0.008 140);
+  --paper-foreground: oklch(0.3 0.08 155);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans text-[1.0625rem] leading-relaxed;
+    font-variant-numeric: tabular-nums;
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    scrollbar-color: var(--sign) var(--background);
   }
   ::selection {
-    @apply bg-foreground text-background;
+    background: var(--caution);
+    color: var(--caution-foreground);
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
+  }
+}
+
+@layer components {
+  /* A sign: coloured field, an inset border line, reflective sheen on hover. data-tone picks the class of sign. */
+  .sign {
+    --sign-inset: 7px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--sign-bg);
+    color: var(--sign-fg);
+  }
+  .sign::before {
+    content: "";
+    position: absolute;
+    inset: var(--sign-inset);
+    z-index: 1;
+    border: 2px solid var(--sign-line);
+    border-radius: calc(var(--radius) - 4px);
+    pointer-events: none;
+  }
+  .sign::after {
+    content: "";
+    position: absolute;
+    inset: -20% -60%;
+    z-index: 2;
+    background: linear-gradient(105deg, transparent 42%, oklch(1 0 0 / 0.2) 50%, transparent 58%);
+    transform: translateX(-60%);
+    transition: transform 700ms var(--ease-out);
+    pointer-events: none;
+  }
+  .sign[data-tone="guide"] {
+    --sign-bg: var(--sign);
+    --sign-fg: var(--sign-foreground);
+    --sign-line: color-mix(in oklch, var(--sign-foreground) 88%, transparent);
+  }
+  .sign[data-tone="caution"] {
+    --sign-bg: var(--caution);
+    --sign-fg: var(--caution-foreground);
+    --sign-line: color-mix(in oklch, var(--caution-foreground) 85%, transparent);
+  }
+  .sign[data-tone="asphalt"] {
+    --sign-bg: var(--asphalt);
+    --sign-fg: var(--asphalt-foreground);
+    --sign-line: color-mix(in oklch, var(--caution) 70%, transparent);
+  }
+  .sign[data-tone="info"] {
+    --sign-bg: var(--paper);
+    --sign-fg: var(--paper-foreground);
+    --sign-line: var(--sign);
+  }
+  .dark .sign[data-tone="asphalt"] {
+    outline: 1px solid oklch(1 0 0 / 14%);
+    outline-offset: -1px;
+  }
+
+  /* Interactive signs lift a little and catch a streak of light. Pointer devices only. */
+  .sign[data-interactive] {
+    transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+  }
+  .sign[data-interactive]:active {
+    transform: scale(0.985);
+    transition-duration: 100ms;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .sign[data-interactive]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 28px -14px oklch(0.2 0.05 155 / 0.5);
+    }
+    .sign[data-interactive]:hover::after {
+      transform: translateX(60%);
+    }
+  }
+
+  /* The dashed centre line is the only divider on the page. */
+  .lane {
+    height: 4px;
+    background: repeating-linear-gradient(90deg, var(--lane) 0 26px, transparent 26px 46px);
+  }
+  .lane-v {
+    background: repeating-linear-gradient(180deg, var(--lane) 0 14px, transparent 14px 28px);
+  }
+
+  /* Page entrance for the hero signs: they switch on one after another. */
+  .sign-on {
+    animation: sign-on 560ms var(--ease-out) both;
+    animation-delay: var(--d, 0ms);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sign-on {
+      animation: none;
+    }
+    .sign::after {
+      transition: none;
+    }
+  }
+
+  /* Scroll position as a road: a marker drives down the right edge as you read. Pure CSS, wide screens only. */
+  .road {
+    display: none;
+  }
+  @supports (animation-timeline: scroll()) {
+    @media (min-width: 1280px) and (prefers-reduced-motion: no-preference) {
+      .road {
+        display: block;
+        position: fixed;
+        z-index: 30;
+        top: 6rem;
+        bottom: 2rem;
+        right: 20px;
+        width: 6px;
+        border-radius: 3px;
+        pointer-events: none;
+      }
+      .road > span {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 22px;
+        height: 28px;
+        margin-left: -11px;
+        border-radius: 6px;
+        background: var(--sign);
+        box-shadow: inset 0 0 0 2px var(--sign-foreground);
+        animation: drive linear both;
+        animation-timeline: scroll(root block);
+      }
+      .road > span::after {
+        content: "";
+        position: absolute;
+        inset: 8px 5px;
+        background: var(--caution);
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+      }
+    }
+  }
+}
+
+:root {
+  --lane: oklch(0.78 0.17 90);
+}
+.dark {
+  --lane: oklch(0.87 0.17 92);
+}
+
+@keyframes sign-on {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+    filter: brightness(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes drive {
+  to {
+    transform: translateY(calc(100dvh - 8rem - 28px));
   }
 }

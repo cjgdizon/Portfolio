@@ -2,31 +2,39 @@ import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
 import { experience } from "@/lib/data";
 
+const signs = [
+  { span: "md:col-span-7", tone: "info" },
+  { span: "md:col-span-5", tone: "asphalt" },
+] as const;
+
 export function Experience() {
   return (
     <Section id="experience" title="Experience & education">
-      <ol className="space-y-10 border-l border-border pl-6 sm:pl-8">
-        {experience.map((e, i) => (
-          <li key={e.title} className="relative">
-            <span
-              aria-hidden="true"
-              className="absolute top-2 -left-[29px] size-2 rounded-full bg-foreground sm:-left-[37px]"
-            />
-            <Reveal delay={i * 0.04}>
-              <p className="font-mono text-xs text-muted-foreground">
-                {e.period}
-              </p>
-              <h3 className="mt-1 text-lg font-semibold tracking-tight">
-                {e.title} <span className="text-muted-foreground">· {e.org}</span>
-              </h3>
-              {e.summary && (
-                <p className="mt-2 max-w-[65ch] text-muted-foreground">
-                  {e.summary}
-                </p>
-              )}
-            </Reveal>
-          </li>
-        ))}
+      <ol className="grid gap-5 md:grid-cols-12">
+        {experience.map((e, i) => {
+          const sign = signs[i % signs.length];
+          return (
+            <li key={e.title} className={sign.span}>
+              <Reveal delay={i * 0.06} className="h-full">
+                <div
+                  data-tone={sign.tone}
+                  className="sign flex h-full min-h-56 flex-col p-8 sm:p-10"
+                >
+                  <p className="font-display text-5xl leading-none font-extrabold">
+                    {e.period}
+                  </p>
+                  <h3 className="mt-auto pt-10 font-display text-3xl leading-tight font-bold tracking-wide uppercase">
+                    {e.title}
+                  </h3>
+                  <p className="mt-1 opacity-85">{e.org}</p>
+                  {e.summary && (
+                    <p className="mt-3 max-w-[65ch] opacity-90">{e.summary}</p>
+                  )}
+                </div>
+              </Reveal>
+            </li>
+          );
+        })}
       </ol>
     </Section>
   );

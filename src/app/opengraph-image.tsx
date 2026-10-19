@@ -16,18 +16,31 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding: 96,
-          background: "#ffffff",
-          color: "#171717",
+          padding: 64,
+          background: "#e8ece8",
         }}
       >
-        <div style={{ fontSize: 28, color: "#737373" }}>{profile.role}</div>
-        <div style={{ fontSize: 96, fontWeight: 600, letterSpacing: -3, marginTop: 16 }}>
-          {profile.name}
+        {/* A highway guide sign on concrete, with the yellow centre line underneath. */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            padding: 64,
+            borderRadius: 24,
+            background: "#0b6a3b",
+            border: "6px solid #f4f7f4",
+            color: "#f4f7f4",
+          }}
+        >
+          <div style={{ fontSize: 96, fontWeight: 800, letterSpacing: -2, lineHeight: 1, textTransform: "uppercase" }}>
+            {profile.name}
+          </div>
+          <div style={{ fontSize: 40, fontWeight: 700, marginTop: 32, textTransform: "uppercase" }}>
+            {profile.role}
+          </div>
+          <div style={{ fontSize: 30, marginTop: 12, maxWidth: 800 }}>{profile.tagline}</div>
         </div>
-        <div style={{ fontSize: 32, color: "#737373", marginTop: 24, maxWidth: 800 }}>
-          {profile.tagline}
-        </div>
+        <div style={{ display: "flex", marginTop: 40, height: 10, background: "#f6c90e" }} />
       </div>
     ),
     size,

@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T00:00:00Z",
+  "title": "Design System: Portfolio (Highway Gantry)",
+  "extensions": {
+    "colorMeta": {
+      "guide-green": { "role": "primary", "displayName": "Guide Green", "canonical": "oklch(0.44 0.105 155)", "tonalRamp": ["oklch(0.15 0.105 155)", "oklch(0.25 0.105 155)", "oklch(0.35 0.105 155)", "oklch(0.44 0.105 155)", "oklch(0.55 0.105 155)", "oklch(0.67 0.09 155)", "oklch(0.8 0.06 155)", "oklch(0.93 0.03 155)"] },
+      "caution-yellow": { "role": "secondary", "displayName": "Caution Yellow", "canonical": "oklch(0.87 0.17 92)", "tonalRamp": ["oklch(0.25 0.06 92)", "oklch(0.38 0.1 92)", "oklch(0.5 0.13 92)", "oklch(0.65 0.16 92)", "oklch(0.78 0.17 92)", "oklch(0.87 0.17 92)", "oklch(0.93 0.1 92)", "oklch(0.97 0.05 92)"] },
+      "asphalt": { "role": "neutral", "displayName": "Asphalt", "canonical": "oklch(0.23 0.012 150)", "tonalRamp": ["oklch(0.15 0.012 150)", "oklch(0.23 0.012 150)", "oklch(0.32 0.012 150)", "oklch(0.42 0.012 150)", "oklch(0.55 0.012 150)", "oklch(0.7 0.01 150)", "oklch(0.85 0.008 150)", "oklch(0.95 0.006 150)"] },
+      "concrete": { "role": "neutral", "displayName": "Concrete", "canonical": "oklch(0.945 0.007 140)", "tonalRamp": ["oklch(0.21 0.012 140)", "oklch(0.35 0.012 140)", "oklch(0.5 0.012 140)", "oklch(0.65 0.01 140)", "oklch(0.78 0.012 140)", "oklch(0.88 0.01 140)", "oklch(0.945 0.007 140)", "oklch(0.985 0.004 140)"] },
+      "info-paper": { "role": "neutral", "displayName": "Info Paper", "canonical": "oklch(0.99 0.004 140)", "tonalRamp": ["oklch(0.3 0.08 155)", "oklch(0.45 0.06 155)", "oklch(0.6 0.04 155)", "oklch(0.75 0.03 150)", "oklch(0.85 0.02 145)", "oklch(0.92 0.01 140)", "oklch(0.96 0.006 140)", "oklch(0.99 0.004 140)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The name on the hero guide sign." },
+      "headline": { "displayName": "Headline", "purpose": "Section signs and project titles." },
+      "title": { "displayName": "Title", "purpose": "Role line, nav, button labels." },
+      "body": { "displayName": "Body", "purpose": "All running text, Barlow." },
+      "label": { "displayName": "Label", "purpose": "Years and project tags." }
+    },
+    "shadows": [
+      { "name": "sign-lift", "value": "0 18px 28px -14px oklch(0.2 0.05 155 / 0.5)", "purpose": "Hover on interactive signs, pointer devices only." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Sign lift, sheen sweep, sign-on entrance." },
+      { "name": "sign-on", "value": "560ms, staggered 90ms", "purpose": "Hero signs switch on at load." },
+      { "name": "sheen", "value": "700ms translateX sweep", "purpose": "Light streak across interactive signs." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Guide Sign",
+      "kind": "card",
+      "refersTo": "sign-guide",
+      "description": "Green field, white lettering, inset white line. Hero name and section titles.",
+      "html": "<div class=\"ds-sign ds-guide\"><span>SELECTED WORK</span></div>",
+      "css": ".ds-sign { position: relative; border-radius: 10px; padding: 28px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: 0.025em; line-height: 1; text-transform: uppercase; display: inline-block; transition: transform 220ms cubic-bezier(0.23,1,0.32,1), box-shadow 220ms cubic-bezier(0.23,1,0.32,1); } .ds-sign::before { content: ''; position: absolute; inset: 5px; border: 2px solid currentColor; border-radius: 6px; opacity: 0.88; pointer-events: none; } .ds-sign:hover { transform: translateY(-3px); box-shadow: 0 18px 28px -14px oklch(0.2 0.05 155 / 0.5); } .ds-guide { background: oklch(0.44 0.105 155); color: oklch(0.985 0.005 140); }"
+    },
+    {
+      "name": "Caution Sign",
+      "kind": "card",
+      "refersTo": "sign-caution",
+      "description": "Warning yellow with dark ink; status and highlights.",
+      "html": "<div class=\"ds-sign ds-caution\"><span>OPEN TO INTERNSHIPS</span></div>",
+      "css": ".ds-sign { position: relative; border-radius: 10px; padding: 28px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 40px; line-height: 0.95; text-transform: uppercase; display: inline-block; } .ds-sign::before { content: ''; position: absolute; inset: 7px; border: 2px solid currentColor; border-radius: 6px; opacity: 0.85; pointer-events: none; } .ds-caution { background: oklch(0.87 0.17 92); color: oklch(0.2 0.02 90); }"
+    },
+    {
+      "name": "Asphalt Sign",
+      "kind": "card",
+      "refersTo": "sign-asphalt",
+      "description": "Near-black field with a yellow inset line.",
+      "html": "<div class=\"ds-sign ds-asphalt\"><span>PROJECT</span></div>",
+      "css": ".ds-sign { position: relative; border-radius: 10px; padding: 28px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; display: inline-block; } .ds-sign::before { content: ''; position: absolute; inset: 7px; border: 2px solid oklch(0.87 0.17 92 / 0.7); border-radius: 6px; pointer-events: none; } .ds-asphalt { background: oklch(0.23 0.012 150); color: oklch(0.95 0.006 140); }"
+    },
+    {
+      "name": "Info Sign",
+      "kind": "card",
+      "refersTo": "sign-info",
+      "description": "White panel, dark green lettering, green inset line; also hosts the contact form.",
+      "html": "<div class=\"ds-sign ds-info\"><span>CONTACT</span></div>",
+      "css": ".ds-sign { position: relative; border-radius: 10px; padding: 28px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; display: inline-block; } .ds-sign::before { content: ''; position: absolute; inset: 7px; border: 2px solid oklch(0.44 0.105 155); border-radius: 6px; pointer-events: none; } .ds-info { background: oklch(0.99 0.004 140); color: oklch(0.3 0.08 155); }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Green condensed uppercase action; the one primary per view.",
+      "html": "<button class=\"ds-btn\">View projects</button>",
+      "css": ".ds-btn { height: 48px; padding: 0 24px; border: 1px solid transparent; border-radius: 10px; background: oklch(0.44 0.105 155); color: oklch(0.985 0.005 140); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.025em; text-transform: uppercase; cursor: pointer; transition: transform 150ms ease-out, background-color 150ms ease-out; } .ds-btn:hover { background: oklch(0.44 0.105 155 / 0.8); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 3px solid oklch(0.21 0.012 150); outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action beside the primary.",
+      "html": "<button class=\"ds-btn-outline\">Download résumé</button>",
+      "css": ".ds-btn-outline { height: 48px; padding: 0 24px; border: 1px solid oklch(0.78 0.012 145); border-radius: 10px; background: oklch(0.945 0.007 140); color: oklch(0.21 0.012 150); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.025em; text-transform: uppercase; cursor: pointer; transition: transform 150ms ease-out, background-color 150ms ease-out; } .ds-btn-outline:hover { background: oklch(0.91 0.01 140); } .ds-btn-outline:active { transform: scale(0.97); } .ds-btn-outline:focus-visible { outline: 3px solid oklch(0.21 0.012 150); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "sign-info",
+      "description": "White field on the info sign, in both themes.",
+      "html": "<input class=\"ds-input\" placeholder=\"Your name\" />",
+      "css": ".ds-input { height: 48px; width: 260px; padding: 0 12px; border: 1px solid oklch(0.3 0.08 155 / 0.5); border-radius: 8px; background: #fff; color: oklch(0.3 0.08 155); font-family: 'Barlow', sans-serif; font-size: 16px; } .ds-input::placeholder { color: oklch(0.3 0.08 155 / 0.6); } .ds-input:focus-visible { outline: none; border-color: oklch(0.44 0.105 155); box-shadow: 0 0 0 3px oklch(0.44 0.105 155 / 0.4); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "description": "Condensed uppercase link with a growing underline.",
+      "html": "<a class=\"ds-nav\" href=\"#\">Projects<span></span></a>",
+      "css": ".ds-nav { position: relative; display: inline-block; padding: 8px 12px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.025em; text-transform: uppercase; color: oklch(0.43 0.015 150); text-decoration: none; transition: color 150ms; } .ds-nav span { position: absolute; left: 12px; right: 12px; bottom: 2px; height: 3px; border-radius: 9999px; background: oklch(0.44 0.105 155); transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; } .ds-nav:hover { color: oklch(0.21 0.012 150); } .ds-nav:hover span { transform: scaleX(1); }"
+    },
+    {
+      "name": "Lane Line",
+      "kind": "custom",
+      "description": "Dashed yellow divider; the only divider in the system.",
+      "html": "<div class=\"ds-lane\"></div>",
+      "css": ".ds-lane { width: 320px; height: 4px; background: repeating-linear-gradient(90deg, oklch(0.78 0.17 90) 0 26px, transparent 26px 46px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Highway Gantry",
+    "overview": "The page is a road and each section is a sign you pass. Philippine highway signage supplies the whole material vocabulary: guide-sign green with a white inset border line, warning yellow, asphalt black, white information panels, all set on concrete grey. Dark mode is the same signs at night: asphalt ground, with the green and yellow reading as reflective against it. The signs keep their identity in both themes; only the ground changes.\n\nDensity is generous and confident. Lettering is huge condensed caps on flat colour fields; body text stays in a calm humanist sans. Layout rhythm comes from unequal sign spans (4+2 / 2+4), not equal cards. The dashed lane line is the only divider.",
+    "keyCharacteristics": [
+      "Flat coloured fields with a 2px inset border line (the sign), one 10px corner radius.",
+      "Condensed uppercase sign lettering at 700-800 weight; Barlow for reading text.",
+      "Four sign classes, selected by tone: guide, caution, asphalt, info.",
+      "Dashed yellow lane line as the sole divider; a scroll-driven road marker on wide screens.",
+      "Reflective sheen and a small lift on interactive signs, pointer devices only."
+    ],
+    "rules": [
+      { "name": "The Four Signs Rule", "body": "Colour lives on signs. A surface is one of guide, caution, asphalt or info (via data-tone); never invent a fifth sign colour or tint a sign gradient.", "section": "colors" },
+      { "name": "The Same Signs At Night Rule", "body": "Dark mode changes the ground, not the signs. Sign identity must read in both themes.", "section": "colors" },
+      { "name": "The Lettering Rule", "body": "Condensed caps are for signs: names, section titles, project titles, nav, buttons. Reading text never uses the condensed face.", "section": "typography" },
+      { "name": "The Flat Sign Rule", "body": "Signs are flat at rest. Lift appears only in response to hover; never as a resting shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do express every new surface as one of the four signs, using data-tone and the .sign class.",
+      "Do keep a single 10px radius; tags at 4px.",
+      "Do use the dashed lane as the only divider.",
+      "Do keep focus visible: a 3px outline in --ring with 3px offset (near-black by day, yellow at night).",
+      "Do keep contrast on sign fields by using the paired foreground token for each tone."
+    ],
+    "donts": [
+      "Don't introduce a fifth colour field, gradients on sign faces, or glow effects in dark mode.",
+      "Don't use equal-width card grids for work; vary spans.",
+      "Don't put condensed caps on running text.",
+      "Don't add resting shadows or borders-as-dividers between sections.",
+      "Don't let hover lift or the light streak run on touch devices."
+    ]
+  }
+}

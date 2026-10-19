@@ -2,8 +2,9 @@ import { profile } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/60">
-      <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-5 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:px-8">
+    <footer className="mt-12">
+      <div aria-hidden="true" className="lane mx-auto max-w-6xl" />
+      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-5 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:px-8">
         <p>
           © {new Date().getFullYear()} {profile.name}. Built with Next.js and
           Tailwind.
@@ -15,7 +16,7 @@ export function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-sm transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                className="rounded-lg font-medium transition-colors duration-150 hover:text-foreground"
               >
                 {s.label}
               </a>

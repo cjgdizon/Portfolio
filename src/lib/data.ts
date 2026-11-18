@@ -5,8 +5,8 @@ export const profile = {
   role: "Full-Stack Developer",
   tagline:
     "I build fast, accessible web apps with clean code and thoughtful design.",
-  availability: "Open to full-time roles",
-  email: "dizon.christianjames27@gmail.com",
+  availability: "Open to internships",
+  email: "cjamesgdizon@gmail.com",
   siteUrl: "https://portfolio-nine-coral-djuqwwvzib.vercel.app",
   resumeUrl: "/resume.pdf",
   bio: [
@@ -34,6 +34,24 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "pennywise",
+    title: "PennyWise",
+    summary: "A personal finance app for tracking spending, budgets and savings offline.",
+    description:
+      "PennyWise brings manual income, expenses, account transfers, budgets, bills and savings goals into one workspace. Records stay in the current browser, with no signup or bank connection. The app reopens offline after its files have been cached. Savings contributions reserve existing funds, while reports filter activity for CSV export or a printable PDF. Backups can be reviewed and merged without silently replacing existing records. The linked live site runs an earlier version than the local redesign described here.",
+    role: "Developer",
+    year: "2026",
+    tags: ["React", "TypeScript", "Tailwind CSS", "PWA", "IndexedDB"],
+    highlights: [
+      "Separate accounts, transfers and category budgets with browser-local storage through Dexie",
+      "Bill payments create linked expenses; savings goals reserve funds without counting them as spending",
+      "Filtered CSV exports, printable reports and backup imports with conflict previews",
+      "Integer-based money calculations and guarded database migrations",
+    ],
+    liveUrl: "https://pennywise-pi.vercel.app",
+    repoUrl: "https://github.com/cjgdizon/PennyWise",
+  },
   {
     slug: "amira",
     title: "AMIRA",

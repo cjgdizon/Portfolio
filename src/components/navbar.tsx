@@ -1,111 +1,97 @@
 "use client";
-
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import { profile } from "@/lib/data";
-
-const links = [
-  { href: "/#about", label: "About" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#certifications", label: "Certifications" },
-  { href: "/#contact", label: "Contact" },
-];
-
-const initials = profile.name
-  .split(" ")
-  .map((w) => w[0])
-  .join("")
-  .slice(0, 2);
-
+import { useEffect, useRef, useState } from "react";
+const links = ["Projects", "About", "Skills", "Contact"];
 export function Navbar() {
   const [open, setOpen] = useState(false);
-
+  const toggle = useRef<HTMLButtonElement>(null);
+  const menu = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    menu.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    const close = () => {
+      setOpen(false);
+      toggle.current?.focus();
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "Tab") {
+        const items = [
+          toggle.current,
+          ...Array.from(
+            menu.current?.querySelectorAll<HTMLAnchorElement>("a") ?? [],
+          ),
+        ].filter((x): x is HTMLButtonElement | HTMLAnchorElement => !!x);
+        const index = items.indexOf(
+          document.activeElement as HTMLAnchorElement,
+        );
+        e.preventDefault();
+        items[
+          (index + (e.shiftKey ? -1 : 1) + items.length) % items.length
+        ]?.focus();
+      }
+    };
+    const onResize = () => {
+      if (innerWidth >= 1024) close();
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
   }, [open]);
-
   return (
-    <header className="sticky top-0 z-40 border-b-[3px] border-sign bg-background">
-      <nav
-        aria-label="Main"
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
-      >
-        <Link href="/" className="flex items-center gap-3 rounded-lg">
-          <span
-            aria-hidden="true"
-            data-tone="guide"
-            className="sign grid size-10 place-items-center font-display text-lg leading-none font-extrabold tracking-wide [--sign-inset:3px]"
-          >
-            {initials}
-          </span>
-          <span className="hidden font-display text-xl font-bold tracking-wide uppercase sm:inline">
-            {profile.name}
-          </span>
-          <span className="sr-only sm:hidden">{profile.name}</span>
+    <header className="nav">
+      <nav className="wrap nav-inner" aria-label="Main">
+        <Link href="/" className="wordmark" onClick={() => setOpen(false)}>
+          cjd<span>.</span>
+          <span className="sr-only"> Christian James Dizon</span>
         </Link>
-
-        <div className="flex items-center gap-1">
-          <ul className="hidden items-center gap-1 lg:flex">
-            {links.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="group/link relative block rounded-lg px-3 py-2 font-display text-lg font-semibold tracking-wide text-muted-foreground uppercase transition-colors duration-150 hover:text-foreground"
-                >
-                  {l.label}
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-x-3 bottom-0.5 h-[3px] origin-left scale-x-0 rounded-full bg-sign transition-transform duration-200 ease-out group-hover/link:scale-x-100 dark:bg-caution"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            className="size-11 cursor-pointer lg:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            onClick={() => setOpen((o) => !o)}
-          >
-            {open ? (
-              <X aria-hidden="true" className="size-5" />
-            ) : (
-              <Menu aria-hidden="true" className="size-5" />
-            )}
-          </Button>
-        </div>
-      </nav>
-
-      {open && (
-        <ul
-          id="mobile-menu"
-          className="animate-in border-t border-border bg-background px-5 py-2 duration-150 fade-in slide-in-from-top-1 lg:hidden"
-        >
-          {links.map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block rounded-lg py-3 font-display text-2xl font-bold tracking-wide uppercase"
-              >
-                {l.label}
+        <ul className="desktop-nav">
+          {links.map((label) => (
+            <li key={label}>
+              <Link className="link" href={`/#${label.toLowerCase()}`}>
+                {label}
               </Link>
             </li>
           ))}
         </ul>
+        <div className="nav-actions">
+          <Link className="btn btn--secondary nav-cta" href="/#contact">
+            Let’s talk <span aria-hidden="true">↗</span>
+          </Link>
+          <button
+            ref={toggle}
+            className="menu-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </button>
+        </div>
+      </nav>
+      {open && (
+        <div ref={menu} id="mobile-menu" className="mobile-menu">
+          {links.map((label) => (
+            <Link
+              key={label}
+              href={`/#${label.toLowerCase()}`}
+              onClick={() => setOpen(false)}
+            >
+              {label}
+            </Link>
+          ))}
+          <a href="/resume.pdf" download onClick={() => setOpen(false)}>
+            Download résumé
+          </a>
+        </div>
       )}
     </header>
   );

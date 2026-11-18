@@ -45,3 +45,7 @@ next-env.d.ts
 
 # local tooling
 .claude/
+.taste-skill/
+shots/
+.playwright-cli/
+output/playwright/

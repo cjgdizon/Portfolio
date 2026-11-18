@@ -1,28 +1,23 @@
 import { profile } from "@/lib/data";
-
 export function Footer() {
   return (
-    <footer className="mt-12">
-      <div aria-hidden="true" className="lane mx-auto max-w-6xl" />
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-5 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:px-8">
-        <p>
-          © {new Date().getFullYear()} {profile.name}. Built with Next.js and
-          Tailwind.
+    <footer className="footer">
+      <div className="wrap">
+        <p className="footer-name">
+          Christian James Dizon<span>.</span>
         </p>
-        <ul className="flex gap-5">
-          {profile.socials.map((s) => (
-            <li key={s.label}>
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg font-medium transition-colors duration-150 hover:text-foreground"
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="footer-bottom">
+          <p>
+            © {new Date().getFullYear()} {profile.name}
+          </p>
+          <a href={profile.resumeUrl} download className="link">
+            Download résumé
+          </a>
+          <a href="#main" className="link">
+            Back to top ↑
+          </a>
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground">Product names and logos are trademarks of their owners.</p>
       </div>
     </footer>
   );

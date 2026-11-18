@@ -11,9 +11,8 @@ import { contactSchema } from "@/lib/contact-schema";
 import { profile } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-// The form sits on a white info sign in both themes, so the fields keep light, high-contrast colours.
 const field =
-  "h-12 border-paper-foreground/50 bg-white text-base text-paper-foreground placeholder:text-paper-foreground/60 focus-visible:border-sign focus-visible:ring-sign/40 dark:bg-white";
+  "h-12 border-input bg-background text-base text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/20";
 
 type Status = "idle" | "sending" | "success" | "error";
 type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
@@ -46,8 +45,11 @@ export function ContactForm() {
       };
       setErrors(next);
       setStatus("idle");
-      const first = (["name", "email", "message"] as const).find((k) => next[k]);
-      if (first) (form.elements.namedItem(first) as HTMLElement | null)?.focus();
+      const first = (["name", "email", "message"] as const).find(
+        (k) => next[k],
+      );
+      if (first)
+        (form.elements.namedItem(first) as HTMLElement | null)?.focus();
       return;
     }
 
@@ -63,7 +65,10 @@ export function ContactForm() {
         `https://formsubmit.co/ajax/${encodeURIComponent(profile.email)}`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
           body: JSON.stringify({
             name,
             email,
@@ -86,7 +91,9 @@ export function ContactForm() {
       form.reset();
       setStatus("success");
     } catch {
-      setFormError("Network error. Please check your connection and try again.");
+      setFormError(
+        "Network error. Please check your connection and try again.",
+      );
       setStatus("error");
     }
   }
@@ -107,7 +114,7 @@ export function ContactForm() {
           className={field}
         />
         {errors.name && (
-          <p id="name-error" className="text-sm font-medium text-red-700">
+          <p id="name-error" className="text-sm font-medium text-destructive">
             {errors.name}
           </p>
         )}
@@ -126,7 +133,7 @@ export function ContactForm() {
           className={field}
         />
         {errors.email && (
-          <p id="email-error" className="text-sm font-medium text-red-700">
+          <p id="email-error" className="text-sm font-medium text-destructive">
             {errors.email}
           </p>
         )}
@@ -144,14 +151,17 @@ export function ContactForm() {
           className={cn(field, "h-auto min-h-36 py-3")}
         />
         {errors.message && (
-          <p id="message-error" className="text-sm font-medium text-red-700">
+          <p
+            id="message-error"
+            className="text-sm font-medium text-destructive"
+          >
             {errors.message}
           </p>
         )}
       </div>
 
       {/* Honeypot: hidden from people and assistive tech, bots tend to fill it. */}
-      <div aria-hidden="true" className="absolute -left-[9999px]">
+      <div aria-hidden="true" className="hidden">
         <label htmlFor="website">Leave this field empty</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
@@ -159,7 +169,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={sending}
-        className="h-12 w-full cursor-pointer font-display text-lg font-bold tracking-wide uppercase sm:w-auto sm:px-8"
+        className="btn btn--primary h-12 w-full cursor-pointer sm:w-auto sm:px-8"
       >
         {sending ? (
           <Loader2 aria-hidden="true" className="animate-spin" />
@@ -171,12 +181,12 @@ export function ContactForm() {
 
       <div role="status" aria-live="polite" className="min-h-6 text-sm">
         {status === "success" && (
-          <p className="font-medium text-sign">
+          <p className="font-medium text-foreground">
             Thanks! Your message was sent. I&apos;ll get back to you soon.
           </p>
         )}
         {status === "error" && (
-          <p className="font-medium text-red-700">{formError}</p>
+          <p className="font-medium text-destructive">{formError}</p>
         )}
       </div>
     </form>

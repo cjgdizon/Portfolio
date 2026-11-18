@@ -7,6 +7,10 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
+    ".agents/**",
+    ".taste-skill/**",
+    "public/assets/**",
+    "shots/**",
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",

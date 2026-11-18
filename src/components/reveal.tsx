@@ -1,30 +1,36 @@
 "use client";
 
-import { MotionConfig, motion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
-type RevealProps = {
+export function Reveal({
+  children,
+  className,
+}: {
   children: ReactNode;
   delay?: number;
   className?: string;
-};
-
-// Always render the same markup on server and client (no useReducedMotion branch): a different
-// first render for reduced-motion visitors would leave the server's opacity:0 stuck on the DOM node.
-// MotionConfig reducedMotion="user" drops the slide for those visitors and keeps a plain fade.
-// Strong ease-out (starts fast, settles gently) and a short travel keep entrances quick and quiet.
-export function Reveal({ children, delay = 0, className }: RevealProps) {
-  return (
-    <MotionConfig reducedMotion="user">
-      <motion.div
-        className={className}
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.5, delay, ease: [0.23, 1, 0.32, 1] }}
-      >
-        {children}
-      </motion.div>
-    </MotionConfig>
-  );
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || !("IntersectionObserver" in window)) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const observer = new IntersectionObserver(([entry]) => {
+      node.toggleAttribute("data-reveal-visible", entry.isIntersecting);
+      node.setAttribute("data-reveal-ready", "");
+    });
+    const sync = () => {
+      observer.disconnect();
+      node.removeAttribute("data-reveal-ready");
+      node.removeAttribute("data-reveal-visible");
+      if (!motion.matches) observer.observe(node);
+    };
+    sync();
+    motion.addEventListener("change", sync);
+    return () => {
+      observer.disconnect();
+      motion.removeEventListener("change", sync);
+    };
+  }, []);
+  return <div ref={ref} className={`scroll-reveal ${className ?? ""}`}>{children}</div>;
 }

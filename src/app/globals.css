@@ -479,19 +479,6 @@ html.intro-typing .role-word:nth-child(3) { animation-delay: 7900ms; }
   color: #bdbdbd;
   max-width: 48ch;
 }
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-}
-.tags li {
-  border: 1px solid #383838;
-  border-radius: 4px;
-  padding: 4px 10px;
-  font-size: 13px;
-  color: #c7c7c7;
-}
 .about-grid,
 .learning-grid,
 .contact-grid {
@@ -533,9 +520,6 @@ html.intro-typing .role-word:nth-child(3) { animation-delay: 7900ms; }
   display: grid;
   gap: 32px;
   align-content: start;
-}
-.skill-groups .tags {
-  margin-top: 12px;
 }
 .certificates h3 {
   padding-bottom: 16px;

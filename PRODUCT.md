@@ -16,7 +16,7 @@ A personal portfolio for Christian James Dizon, a third-year B.S. Information Te
 Four real, shipped full-stack projects with source links, one of them a hackathon entry (Lubak Alert, AppBuildersPH 2026), backed by 19 Coursera certificates. Honest about status: Lubak Alert is untested on a real ride and flood detection does not work yet.
 
 ## Capabilities and Constraints
-- Next.js 16 App Router, React 19, Tailwind v4, motion, next-themes (light, dark, system).
+- Next.js 16 App Router, React 19, Tailwind v4.
 - All content lives in `src/lib/data.ts`; routes: `/` and `/projects/[slug]`.
 - Anchor ids (#about, #projects, #skills, #experience, #certifications, #contact) and project slugs stay stable.
 - Deployed on Vercel from `main`.

@@ -7,7 +7,7 @@ import { TechnologyStack } from "@/components/technology-stack";
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-art" aria-hidden="true" data-enter-media>
+      <div className="hero-art" aria-hidden="true">
         <Image src="/hero-titanium.webp" alt="" fill sizes="100vw" preload />
       </div>
       <div className="wrap hero-shell">

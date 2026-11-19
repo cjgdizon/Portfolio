@@ -4,11 +4,8 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 export function Reveal({
   children,
-  className,
 }: {
   children: ReactNode;
-  delay?: number;
-  className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -32,5 +29,5 @@ export function Reveal({
       motion.removeEventListener("change", sync);
     };
   }, []);
-  return <div ref={ref} className={`scroll-reveal ${className ?? ""}`}>{children}</div>;
+  return <div ref={ref} className="scroll-reveal">{children}</div>;
 }

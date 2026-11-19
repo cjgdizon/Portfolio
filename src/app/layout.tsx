@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
-import Script from "next/script";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { profile } from "@/lib/data";
@@ -63,11 +62,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <Footer />
         </div>
-        <Script
-          src="/assets/motion/motion.js"
-          type="module"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );

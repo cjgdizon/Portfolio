@@ -11,5 +11,3 @@ export const contactSchema = z.object({
   // Honeypot: real users never see or fill this field.
   website: z.string().max(0).optional(),
 });
-
-export type ContactInput = z.infer<typeof contactSchema>;

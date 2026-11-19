@@ -100,4 +100,21 @@ export const projects: Project[] = [
     ],
     repoUrl: "https://github.com/cjgdizon/tetris",
   },
+  {
+    slug: "crown-chess",
+    title: "Crown Chess",
+    summary: "Play chess in your browser against Stockfish or a friend on the same device.",
+    description:
+      "Crown Chess offers six Stockfish difficulty levels and local two-player games with optional board rotation. Players can choose timed or untimed games, review their moves, and get hints during play. The Stockfish engine runs in a Web Worker, and unfinished games can be resumed in the same browser.",
+    role: "Developer",
+    year: "2026",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "chess.js", "Stockfish"],
+    highlights: [
+      "Stockfish 17.1 Lite runs in the browser using WebAssembly",
+      "Bullet, blitz, rapid and classical time controls with increment presets",
+      "Click or drag to move, with legal-move indicators and inline pawn promotion",
+      "Best-move hints, a live evaluation bar and step-by-step move history",
+    ],
+    repoUrl: "https://github.com/cjgdizon/crown-chess",
+  },
 ];

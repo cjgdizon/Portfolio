@@ -8,6 +8,6 @@ export const contactSchema = z.object({
     .trim()
     .min(10, "Your message should be at least 10 characters.")
     .max(4000, "Your message is too long (4000 characters max)."),
-  // Honeypot: real users never see or fill this field.
-  website: z.string().max(0).optional(),
 });
+
+export type ContactMessage = z.infer<typeof contactSchema>;

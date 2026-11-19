@@ -1,4 +1,4 @@
-import { profile } from "@/lib/data";
+import { profile } from "@/lib/profile";
 export function Footer() {
   return (
     <footer className="footer">

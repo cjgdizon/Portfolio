@@ -1,0 +1,80 @@
+.grid,
+.experience {
+  display: grid;
+}
+
+.grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.statement {
+  font-family: var(--font-geist);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  max-width: 960px;
+  text-wrap: pretty;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .statement > span {
+    transition: color 160ms ease;
+  }
+
+  .unhighlighted {
+    color: color-mix(in oklab, var(--foreground) 50%, var(--background));
+  }
+}
+
+.experience {
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  margin-top: 64px;
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+}
+
+.experience h3 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.experience h4 {
+  font-weight: 500;
+}
+
+.experience ol {
+  display: grid;
+  gap: 28px;
+}
+
+.experience li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 639px) {
+  .grid,
+  .experience,
+  .experience li {
+    grid-template-columns: 1fr;
+  }
+
+  .experience {
+    margin-top: 40px;
+  }
+
+  .experience li {
+    gap: 6px;
+  }
+}

@@ -1,7 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
-import { ContactForm } from "@/components/contact-form";
 import { Section } from "@/components/section";
-import { profile } from "@/lib/data";
+import { profile } from "@/lib/profile";
+import { ContactForm } from "./contact-form";
+
 export function Contact() {
   return (
     <Section id="contact" title="Let’s build your next project.">
@@ -33,7 +34,7 @@ export function Contact() {
           </ul>
         </div>
         <div className="panel contact-panel">
-          <ContactForm />
+          <ContactForm recipient={profile.email} />
         </div>
       </div>
     </Section>

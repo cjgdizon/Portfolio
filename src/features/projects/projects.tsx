@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/section";
-import { projects } from "@/lib/data";
+import { projects } from "@/features/projects/project-data";
 import { TechnologyStack } from "@/components/technology-stack";
 export function Projects() {
   return (

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
-import { profile, projects } from "@/lib/data";
+import { profile } from "@/lib/profile";
+import { projects } from "@/features/projects/project-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

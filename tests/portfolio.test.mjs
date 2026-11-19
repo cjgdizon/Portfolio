@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { certifications } from "../src/features/skills/certificate-data.ts";
+import { projects } from "../src/features/projects/project-data.ts";
 
 const base = process.env.PORTFOLIO_TEST_URL || "http://127.0.0.1:3000";
 
@@ -30,7 +32,7 @@ test("home retains credentials, anchors, and an accessible contact form", async 
   }
   assert.equal(
     (html.match(/href="https:\/\/www\.coursera\.org/g) || []).length,
-    19,
+    certifications.length,
   );
   assert.ok(html.includes("<details"));
   assert.ok(html.includes("Discuss your project"));
@@ -39,16 +41,15 @@ test("home retains credentials, anchors, and an accessible contact form", async 
   for (const name of ["name", "email", "message"]) {
     assert.ok(html.includes(`for="${name}"`), `Missing label ${name}`);
   }
+  assert.match(html, /<form\b[^>]*method="post"/);
+  assert.match(html, /<button\b(?=[^>]*type="submit")(?=[^>]*\bdisabled="")[^>]*>/);
+  assert.ok(html.includes("Email me"));
   assert.ok(!html.includes("Open to full-time roles"));
 });
 
 test("every project and the resume remain reachable", async () => {
   for (const route of [
-    "/projects/pennywise",
-    "/projects/amira",
-    "/projects/dentasync",
-    "/projects/lubak-alert",
-    "/projects/tetris-battle",
+    ...projects.map(({ slug }) => `/projects/${slug}`),
     "/resume.pdf",
   ]) {
     const response = await fetch(base + route);
@@ -65,14 +66,14 @@ test("every project and the resume remain reachable", async () => {
   }
 });
 
-test("all 19 actual certificate previews and full-size images are available", async () => {
+test("all certificate previews and full-size images are available", async () => {
   const html = await (await fetch(base)).text();
   const ids = new Set([...html.matchAll(/\/certificates\/([A-Z0-9]+)\.webp/g)].map(match => match[1]));
-  assert.equal(ids.size, 19);
+  assert.deepEqual(ids, new Set(certifications.map(({ id }) => id)));
   const duplicate = html.match(/<ul(?=[^>]*aria-hidden="true")(?=[^>]*class="certificate-group")[^>]*>(.*?)<\/ul>/s)?.[1];
   assert.ok(duplicate, "Duplicate certificate group must be hidden from assistive technology");
   const duplicateLinks = [...duplicate.matchAll(/<a\b[^>]*href="\/certificates\/[A-Z0-9]+\.jpg"[^>]*>/g)];
-  assert.equal(duplicateLinks.length, 19);
+  assert.equal(duplicateLinks.length, certifications.length);
   for (const [link] of duplicateLinks) assert.match(link, /tabindex="-1"/);
   for (const id of ids) {
     for (const extension of ["webp", "jpg"]) {

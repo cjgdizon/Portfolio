@@ -2,7 +2,7 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { profile } from "@/lib/data";
+import { profile } from "@/lib/profile";
 const links = ["Projects", "About", "Skills", "Contact"];
 export function Navbar() {
   const [open, setOpen] = useState(false);

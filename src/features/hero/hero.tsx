@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
-import { profile } from "@/lib/data";
+import { profile } from "@/lib/profile";
 import { TechnologyStack } from "@/components/technology-stack";
 
 export function Hero() {

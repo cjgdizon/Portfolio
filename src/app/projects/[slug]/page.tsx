@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects } from "@/lib/data";
+import { projects } from "@/features/projects/project-data";
 import { TechnologyStack } from "@/components/technology-stack";
 
 export function generateStaticParams() {

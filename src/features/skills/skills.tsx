@@ -1,6 +1,6 @@
 import { Section } from "@/components/section";
-import { Certifications } from "@/components/certifications";
-import { skills } from "@/lib/data";
+import { Certifications } from "./certifications";
+import { skills } from "./skill-data";
 import { TechnologyStack } from "@/components/technology-stack";
 export function Skills() {
   return (

@@ -1,0 +1,72 @@
+.certificates h3 {
+  padding-bottom: 16px;
+}
+.certificates { margin-top: 80px; min-width: 0; }
+.certificate-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
+.certificate-heading h3 { font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -.035em; }
+.certificate-heading p { color: #bdbdbd; font-size: 13px; }
+.certificate-window { overflow: hidden; margin-top: 24px; }
+.certificate-track { display: flex; width: max-content; animation: certificate-travel 260s linear infinite; }
+.certificate-group { display: flex; gap: 24px; padding-right: 24px; flex-shrink: 0; }
+.certificate-card { width: min(560px, 86vw); overflow: hidden; border: 1px solid #333; border-radius: 12px; background: #141414; }
+.certificate-image { display: block; background: white; }
+.certificate-image img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; }
+.certificate-caption { padding: 20px 24px; }
+.certificate-caption h4 { font-size: 17px; line-height: 1.4; font-weight: 500; }
+.certificate-caption p { margin-top: 8px; font-size: 13px; color: #a3a3a3; }
+.certificates:focus-within .certificate-track { animation-play-state: paused; }
+.certificates details { margin-top: 24px; }
+@keyframes certificate-travel { to { transform: translateX(-50%); } }
+@media (hover: hover) and (pointer: fine) {
+  .certificate-window:hover .certificate-track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .certificate-track { animation: none; width: auto; }
+  .certificate-window { overflow-x: auto; scroll-snap-type: x proximity; }
+  .certificate-card { scroll-snap-align: start; }
+  .certificate-group[aria-hidden="true"] { display: none; }
+}
+.credential {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-block: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.credential svg {
+  flex-shrink: 0;
+}
+.credential-title {
+  display: block;
+  font-size: 16px;
+}
+.credential-meta {
+  display: block;
+  color: #a3a3a3;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.certificates summary {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 16px;
+  list-style: none;
+  font-size: 14px;
+}
+.certificates summary::-webkit-details-marker {
+  display: none;
+}
+.certificates details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+@media (hover: hover) {
+  .credential:hover {
+    color: white;
+    background: #1b1b1b;
+  }
+}

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { runInNewContext } from "node:vm";
-import { startPortfolioIntro } from "../src/lib/portfolio-intro.ts";
+import { startPortfolioIntro } from "../src/features/intro/start-portfolio-intro.ts";
 
 function boot(reduced = false) {
   const classes = new Set();
@@ -17,7 +17,7 @@ function boot(reduced = false) {
   };
   const window = {
     ...target,
-    matchMedia: () => ({ matches: reduced }),
+    matchMedia: () => ({ ...target, matches: reduced }),
     setTimeout: (fn, ms) => {
       finish = fn;
       duration = ms;
@@ -39,7 +39,6 @@ function boot(reduced = false) {
       },
     },
   };
-  // Exercise the exact self-contained form injected into the document head.
   runInNewContext(`(${startPortfolioIntro.toString()})();`, {
     window,
     document,
@@ -83,6 +82,16 @@ test("reduced motion skips the blocking intro entirely", () => {
   assert.equal(intro.classes.size, 0);
   assert.equal(intro.events.size, 0);
   assert.equal(intro.duration, undefined);
+});
+
+test("enabling reduced motion immediately unlocks the page", () => {
+  const intro = boot();
+  intro.events.get("DOMContentLoaded")();
+  assert.ok(intro.content.inert);
+  intro.events.get("change")({ matches: true });
+  assert.equal(intro.content.inert, false);
+  assert.equal(intro.classes.has("intro-active"), false);
+  assert.equal(intro.events.size, 0);
 });
 
 for (const path of ["escape", "pagehide"]) {

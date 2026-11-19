@@ -8,7 +8,10 @@ export function Projects() {
     <Section id="projects" title="Selected work.">
       <ul className="project-grid">
         {projects.map((p, i) => (
-          <li key={p.slug} className={i === 0 || i === 3 ? "project-wide" : ""}>
+          <li
+            key={p.slug}
+            className={i % 4 === 0 || i % 4 === 3 ? "project-wide" : ""}
+          >
             <Link href={`/projects/${p.slug}`} className="card project-card">
               <div className="project-top">
                 <span>

@@ -25,8 +25,7 @@ The disclosure retains all 19 original verification links; the duplicate marquee
 group is hidden from assistive technology and keyboard navigation; its images
 remain clickable for pointer users.
 Hero uses an original titanium-ribbon image with live HTML copy and client contact actions.
-The original portrait file is retained but is not displayed. Project cards use factual
-text compositions because no screenshots are supplied.
+Project cards use text because no screenshots are supplied.
 
 ## Motion and access
 
@@ -44,29 +43,7 @@ overlay stays hidden and the portfolio remains available. CSS transforms and opa
 no canvas, WebGL, image downloads, additional dependencies, or
 simulated percentage progress.
 
-The former painted intro is retired. Its assets remain unused for provenance and are
-not preloaded. Historical inspiration: https://www.awwwards.com/inspiration/intro-collecting-stamps-on-mt-fuji
-Original artwork replaces the reference's Japanese title; no reference assets or
-code are shipped. Assets generated with the built-in image generator:
-public/intro-cjd-brush.webp (transparent, about 223 KB) and
-public/intro-ink-paper.webp (about 78 KB).
-
-Mark prompt: Create an original white lowercase cjd monogram, physical broad-brush
-sumi-e calligraphy, chunky readable Latin letters, rough bristle edges and dry-brush
-gaps, distinct round j dot, slightly uneven baseline, separate letters, fully
-transparent ground, no mountains, symbols, shadow, bevel, or other text.
-Final edit prompt: Preserve the exact white brush lettering shapes, spacing and
-baseline. Remove all glow, haze, gray shadow and aura. Flat white brush paint,
-fully transparent outside the actual dry-brush strokes. Crisp natural ragged
-bristle edges, no black background or blurred edges.
-
-Background prompt: Original nearly black sumi ink and charcoal brush painting
-on textured black paper, wide landscape, enormous sweeping diagonal physical
-bristle strokes, irregular dry-brush edges, layered black on dark charcoal,
-subtle paper fibers and dusty pigment, deep dark center for a white mark.
-No objects, mountains, text, symbols, logos, color, or synthetic noise.
-
-Skill motion layer supplies hover, press, and hero entrance. About uses its
+Shared styles supply hover and press effects. About owns its
 word-highlight moment. Content stays visible without JavaScript or under reduced
 motion. Mobile navigation supports focus cycling, Escape, and scroll locking.
 

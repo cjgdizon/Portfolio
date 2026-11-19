@@ -1,7 +1,5 @@
 # Product
 
-<!-- impeccable:product-schema 1 -->
-
 ## Platform
 
 web
@@ -13,16 +11,16 @@ Internship recruiters and engineers scanning a student developer's portfolio qui
 A personal portfolio for Christian James Dizon, a third-year B.S. Information Technology student at Mapua University, to win an internship. Success is a recruiter opening a project link or sending an email.
 
 ## Positioning
-Four real, shipped full-stack projects with source links, one of them a hackathon entry (Lubak Alert, AppBuildersPH 2026), backed by 19 Coursera certificates. Honest about status: Lubak Alert is untested on a real ride and flood detection does not work yet.
+Selected projects have source links and are backed by Coursera certificates. Lubak Alert is a hackathon entry. It is untested on a real ride, and its flood detection does not work yet.
 
 ## Capabilities and Constraints
 - Next.js 16 App Router, React 19, Tailwind v4.
-- All content lives in `src/lib/data.ts`; routes: `/` and `/projects/[slug]`.
+- Feature folders hold portfolio content. The site has a home page and individual project pages.
 - Anchor ids (#about, #projects, #skills, #experience, #certifications, #contact) and project slugs stay stable.
 - Deployed on Vercel from `main`.
 
 ## Brand Commitments
-Name: Christian James Dizon. Both light and dark themes, following the system. The user asked for a very bold, experimental look that stays recruiter-friendly.
+Name: Christian James Dizon. The portfolio uses a dark monochrome theme and a bold layout that recruiters can scan quickly.
 
 ## Evidence on Hand
 Real project copy, repo and live links, certificate share links, socials. No testimonials, no employers, no invented metrics. No photo of the user is available.

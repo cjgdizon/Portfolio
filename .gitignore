@@ -22,13 +22,12 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+*.log
+*-debug.log*
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -40,12 +39,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# allow the committed env template
-!.env.example
-
-# local tooling
-.claude/
-.taste-skill/
-shots/
-.playwright-cli/
-output/playwright/
+# Local editor, agent, and browser tooling
+/.agent/
+/.agents/
+/.claude/
+/.codex/
+/.idea/
+/.impeccable/
+/.playwright-cli/
+/.taste-skill/
+/CLAUDE.md
+/skills-lock.json
+/output/
+/shots/

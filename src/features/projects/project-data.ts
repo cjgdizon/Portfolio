@@ -115,6 +115,7 @@ export const projects: Project[] = [
       "Click or drag to move, with legal-move indicators and inline pawn promotion",
       "Best-move hints, a live evaluation bar and step-by-step move history",
     ],
+    liveUrl: "https://crown-chess-one.vercel.app/",
     repoUrl: "https://github.com/cjgdizon/crown-chess",
   },
 ];

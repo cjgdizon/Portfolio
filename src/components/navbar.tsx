@@ -2,6 +2,7 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { profile } from "@/lib/data";
 const links = ["Projects", "About", "Skills", "Contact"];
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -88,7 +89,7 @@ export function Navbar() {
               {label}
             </Link>
           ))}
-          <a href="/resume.pdf" download onClick={() => setOpen(false)}>
+          <a href={profile.resumeUrl} download={profile.resumeFilename} onClick={() => setOpen(false)}>
             Download résumé
           </a>
         </div>

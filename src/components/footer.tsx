@@ -10,7 +10,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {profile.name}
           </p>
-          <a href={profile.resumeUrl} download className="link">
+          <a href={profile.resumeUrl} download={profile.resumeFilename} className="link">
             Download résumé
           </a>
           <a href="#main" className="link">

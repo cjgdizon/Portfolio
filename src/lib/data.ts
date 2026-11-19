@@ -9,6 +9,7 @@ export const profile = {
   email: "cjamesgdizon@gmail.com",
   siteUrl: "https://portfolio-nine-coral-djuqwwvzib.vercel.app",
   resumeUrl: "/resume.pdf",
+  resumeFilename: "Christian-James-Dizon-Resume.pdf",
   bio: [
     "I'm an Information Technology student at Mapúa University who enjoys building complete, working software, from the database to the interface. I've built and deployed web projects including an online store with inventory tracking and a booking system for a dental clinic, and I take part in hackathons. I'm a fast learner, I write code that other people can read, and I back up my learning with Coursera certificates in programming, databases and design. I'm looking for an internship where I can contribute, learn from experienced engineers, and grow as a developer.",
   ],

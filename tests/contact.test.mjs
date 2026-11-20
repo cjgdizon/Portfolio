@@ -42,3 +42,26 @@ test("contact delivery distinguishes a network failure from an unsuccessful resp
   fetch.mock.mockImplementation(async () => new Response("<html></html>"));
   assert.equal(await sendContactMessage(recipient, message), "rejected");
 });
+
+test("contact delivery reports an unconfirmed send when the response body times out", async (t) => {
+  const deadline = new AbortController();
+  const bodyRead = Promise.withResolvers();
+  t.mock.method(AbortSignal, "timeout", () => deadline.signal);
+  t.mock.method(globalThis, "fetch", async (_url, { signal }) =>
+    new Response(new ReadableStream({
+      pull(stream) {
+        bodyRead.resolve();
+        if (!signal) {
+          stream.close();
+          return;
+        }
+        signal.addEventListener("abort", () => stream.error(signal.reason), { once: true });
+      },
+    }, { highWaterMark: 0 })),
+  );
+
+  const result = sendContactMessage(recipient, message);
+  await bodyRead.promise;
+  deadline.abort(new DOMException("Deadline exceeded", "TimeoutError"));
+  assert.equal(await result, "network-error");
+});

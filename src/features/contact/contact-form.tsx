@@ -43,15 +43,17 @@ export function ContactForm({ recipient }: { recipient: string }) {
     if (!hydrated || sending) return;
 
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
-
-    if (data.website) {
-      form.reset();
-      setState({ status: "success" });
+    const website = form.querySelector<HTMLInputElement>("input[name=website]");
+    if (website?.value) {
+      website.value = "";
+      setState({
+        status: "error",
+        message: "Please try again by selecting Send message.",
+      });
       return;
     }
 
-    const parsed = contactSchema.safeParse(data);
+    const parsed = contactSchema.safeParse(Object.fromEntries(new FormData(form)));
     if (!parsed.success) {
       const errors = z.flattenError(parsed.error).fieldErrors;
       setState({ status: "invalid", errors });
@@ -72,8 +74,8 @@ export function ContactForm({ recipient }: { recipient: string }) {
         status: "error",
         message:
           result === "network-error"
-            ? "Network error. Please check your connection and try again."
-            : "Something went wrong sending your message. Please try again, or use the Gmail link above.",
+            ? "We couldn’t confirm delivery. You can try again or use the Email me link."
+            : "Something went wrong sending your message. Please try again or use the Email me link.",
       });
     }
   }

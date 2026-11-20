@@ -4,12 +4,13 @@ export async function sendContactMessage(
   recipient: string,
   { name, email, message }: ContactMessage,
 ): Promise<"success" | "rejected" | "network-error"> {
-  let response: Response;
   try {
-    response = await fetch(
+    const signal = AbortSignal.timeout(15_000);
+    const response = await fetch(
       `https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`,
       {
         method: "POST",
+        signal,
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -25,17 +26,19 @@ export async function sendContactMessage(
         }),
       },
     );
+
+    if (!response.ok) return "rejected";
+
+    const body: unknown = await response.json().catch(() => null);
+    if (signal.aborted) return "network-error";
+
+    return body &&
+      typeof body === "object" &&
+      "success" in body &&
+      (body.success === true || body.success === "true")
+      ? "success"
+      : "rejected";
   } catch {
     return "network-error";
   }
-
-  if (!response.ok) return "rejected";
-
-  const body: unknown = await response.json().catch(() => null);
-  return body &&
-    typeof body === "object" &&
-    "success" in body &&
-    (body.success === true || body.success === "true")
-    ? "success"
-    : "rejected";
 }
